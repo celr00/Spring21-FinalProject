@@ -1,0 +1,87 @@
+/*
+Proyecto Pre-Final
+v1:
+-Puede generar una matriz
+-Puede agregar todos los elementos
+-NO Puede evitar que las coordandas sean las mismas
+*/
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+
+class Juego{
+
+  //Función para Imprimir un arreglo tip String
+  static void ImprimeArr(String arr[][]){
+    for(int i=0; i<arr.length;i++){
+      for(int j=0; j<arr[i].length;j++){
+        System.out.print(arr[i][j]);
+      }
+      System.out.println();
+    }
+  }
+
+  //Función para generar números random hasta cierto valor entero
+  static int NumeroRandom(int max){
+    int valor;
+    valor = (int)(Math.random()*max);
+    return valor;
+  }
+
+
+  static void LlenarPos(int arr[]){
+    arr[0] = NumeroRandom(8);
+    arr[1] = NumeroRandom(7);
+  }
+
+  public static void main(String[] args) {
+
+    String plano[][] = new String[8][7];
+    int meta[] = new int[2]; //Ubicación meta
+    int obst1[] = new int[2]; //Ubicación obst1
+    int obst2[] = new int[2];
+    int obst3[] = new int[2];
+    int obst4[] = new int[2];
+    int obst5[] = new int[2];
+    int obst6[] = new int[2];
+    int obj[] = new int[2]; //Ubicación obj
+    Scanner x = new Scanner(System.in);
+
+    boolean seguir = true; //Quitar después
+
+    //Inicia juego
+    do{
+    //Llenar plano
+    for(int i=0; i<plano.length;i++){
+      for(int j=0; j<plano[i].length;j++){
+        plano[i][j] = " o  ";
+      }
+    }
+
+    LlenarPos(meta);
+    LlenarPos(obj);
+    LlenarPos(obst1);
+    LlenarPos(obst2);
+    LlenarPos(obst3);
+    LlenarPos(obst4);
+    LlenarPos(obst5);
+    LlenarPos(obst6);
+
+    plano[meta[0]][meta[1]] = "META";
+    plano[obj[0]][obj[1]] = " *  ";
+    plano[obst1[0]][obst1[1]] = " #  ";
+    plano[obst2[0]][obst2[1]] = " #  ";
+    plano[obst3[0]][obst3[1]] = " #  ";
+    plano[obst4[0]][obst4[1]] = " #  ";
+    plano[obst5[0]][obst5[1]] = " #  ";
+    plano[obst6[0]][obst6[1]] = " #  ";
+
+    //Imprimir plano
+    ImprimeArr(plano);
+
+    seguir = x.nextBoolean();
+
+    }while(seguir == true);
+  }
+}
