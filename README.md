@@ -12,9 +12,9 @@ The user must indicate how to move throughout the obstacle course using:
   - Right
 
 The obstacle course must be a rectangle of 8 x 7, must have 6 obstacles which are automatically generated and a marker that indicated the users location.
-  *   -> Users location
-  #   -> Obstacles
-  END -> Ending Point
+  - *   -> Users location
+  - #   -> Obstacles
+  - END -> Ending Point
 
 - Each time the user moves we must show the updated obstacles map. 
 - If the user bumps with an object, the game is over and will have the option to reset or end the game.
